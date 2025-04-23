@@ -33,7 +33,8 @@ public class BlogServiceImpl implements BlogService {
                 .orElseThrow(() -> new ResourceNotFoundException("Blog not found"));
         existing.setTitle(blogEntity.getTitle());
         existing.setContent(blogEntity.getContent());
-        return blogRepository.save(existing);
+        BlogEntity updated = blogRepository.save(existing);
+        return updated;
     }
 
     @Override
